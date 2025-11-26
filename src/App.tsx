@@ -1,11 +1,20 @@
-import { useState } from 'react'
+import Header from "./components/Header"
 
 function App() {
   return (
-    <div>
-      <h2>fdsafds</h2>
-      <button className='btn glass'>asdasd</button>
-    </div>
+    <>
+      <Header /> 
+
+      <div id="app">
+        <div id="intro">
+          <h1>Jaxon Page</h1>
+          <button className='btn glass'>Hello</button>
+        </div>
+
+        {/* <div id=""></div> */}
+      </div>
+
+    </>
   )
 }
 
