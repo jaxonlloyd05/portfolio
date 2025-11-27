@@ -1,15 +1,16 @@
-@import "tailwindcss";
-@plugin "daisyui" {
-  themes: autumn --default, forest --prefersdark;
+@import 'tailwindcss';
+@plugin 'daisyui' {
+  themes: autumn --default, dark --prefersdark;
 }
-/* @plugin "daisyui" {
+/* @plugin 'daisyui' {
   themes: autumn --default;
 } */
 
 :root {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 24px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,14 +23,58 @@ body {
   min-height: 100vh;
 }
 
+h1 {font-size: 3.158rem; /* 50.56px */}
+
+h2 {font-size: 2.369rem; /* 37.92px */}
+
+h3 {font-size: 1.777rem; /* 28.48px */}
+
+h4 {font-size: 1.333rem; /* 21.28px */}
+
+small {font-size: 0.750rem; /* 12px */}
+
+#header {
+  position: fixed;
+  width: 100%;
+}
+
 #app {
   display: flex;
   flex-direction: column;
-  max-width: 768px;
+  max-width: 1024px;
   min-width: 320px;
   margin: 0 auto;
 }
 
 #intro {
-  height: 100000px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  place-items: center;
+}
+
+
+.fade-in-section {
+  animation: fade-in 1s forwards;
+}
+
+/* later add animation to fade in items as user scrolls */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY(10vh);
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: none;
+  }
 }

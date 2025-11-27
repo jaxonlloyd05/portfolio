@@ -1,17 +1,16 @@
-import Header from "./components/Header"
+import type React from 'react'
+import Header from './components/Header'
+import Intro from './components/Intro'
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <Header /> 
 
-      <div id="app">
-        <div id="intro">
-          <h1>Jaxon Page</h1>
-          <button className='btn glass'>Hello</button>
-        </div>
+      <div id='app'>
+        <Intro />
 
-        {/* <div id=""></div> */}
+        {/* <div id=''></div> */}
       </div>
 
     </>
