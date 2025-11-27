@@ -1,10 +1,8 @@
 @import 'tailwindcss';
+
 @plugin 'daisyui' {
   themes: autumn --default, dark --prefersdark;
 }
-/* @plugin 'daisyui' {
-  themes: autumn --default;
-} */
 
 :root {
   font-family: 'NTR', sans-serif;
