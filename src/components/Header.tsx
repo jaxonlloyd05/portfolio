@@ -5,13 +5,13 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa6';
 const Header: React.FC = () => {
   return (
     <div id='header'>
-      <div className='navbar gap-4 max-w-[1280px] m-auto'>
+      <div className='navbar max-w-[1280px] m-auto'>
         <div className='flex-none'>
-          <a className='link link-hover text-primary px-3 hidden md:block' href='/' aria-label='link-intro'>Jaxon Lloyd</a>
+          <a className='link link-hover text-primary px-3 hidden md:block' href='/#intro' aria-label='link-intro'>Jaxon Lloyd</a>
         </div>
         <div className='flex-3'>
           <ul className='menu menu-horizontal px-1 hidden md:block'>
-            <li>asdas</li>
+            <li><a className='link link-hover' href='/#aboutme' aria-label='link-aboutme'>About me</a></li>
           </ul>
         </div>
         <div className='flex-none'>
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 

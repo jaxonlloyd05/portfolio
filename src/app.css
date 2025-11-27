@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @plugin 'daisyui' {
-  themes: autumn --default, dark --prefersdark;
+  themes: autumn --default, coffee --prefersdark;
 }
 
 :root {
@@ -34,6 +34,8 @@ small {font-size: 0.750rem; /* 12px */}
 #header {
   position: fixed;
   width: 100%;
+  z-index: 99;
+  background-color: var(--color-base-100);
 }
 
 #app {
@@ -42,6 +44,7 @@ small {font-size: 0.750rem; /* 12px */}
   max-width: 1024px;
   min-width: 320px;
   margin: 0 auto;
+  padding: 36px 24px;
 }
 
 #intro {
@@ -56,12 +59,6 @@ small {font-size: 0.750rem; /* 12px */}
   animation: fade-in 1s forwards;
 }
 
-/* later add animation to fade in items as user scrolls */
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
 @keyframes fade-in {
   0% {
     transform: translateY(10vh);
@@ -74,5 +71,6 @@ small {font-size: 0.750rem; /* 12px */}
 
   100% {
     transform: none;
+    opacity: 0.75;
   }
 }
