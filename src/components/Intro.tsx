@@ -8,11 +8,10 @@ const greetings = [
 ]
 
 const Intro: React.FC = () => {
-    
-    
     return (
         <div id='intro' className='pt-[144px] md:pt-[288px]'>
             <MountainLine />
+
             {/* <h1 className='text-center'><span className='text-primary'>Jaxon Lloyd,</span> first of his name</h1> */}
             <h1 className='text-center'>
                 {greetings[Math.floor(Math.random() * greetings.length)]}

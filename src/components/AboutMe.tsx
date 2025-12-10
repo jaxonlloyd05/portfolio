@@ -11,8 +11,9 @@ const AboutMe: React.FC = () => {
         <div className='hero-content justify-between items-start w-full flex-col lg:flex-row-reverse'>
           <div className='hover-3d place-self-center'>
             <img
-              src='/imgs/me.jpg'
+              src='/imgs/me.webp'
               className='max-w-sm rounded-lg shadow-2xl w-50'
+              alt='image of me'
             />
             <div></div>
             <div></div>

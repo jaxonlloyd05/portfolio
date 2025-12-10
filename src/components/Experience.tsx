@@ -21,9 +21,14 @@ const Experience: React.FC = () => {
             Software Developer @ 
             <span className='text-primary'> Novofinity</span>
           </p>
-          <p className='text-sm'>
-            I worked here
+          <p className='text-xs text-primary'>
+            DEC 2023 - DEC 2025
           </p>
+          <div className='block relative'>
+            <ul className='text-sm custom-li'>
+              <li>afas</li>
+            </ul>
+          </div>
         </div>
 
         {/* <input type="radio" name="experience-tabs" className="tab" aria-label="Tab 2"  />

@@ -35,6 +35,16 @@ h4 {font-size: 1.333rem; /* 21.28px */}
 
 small {font-size: 0.750rem; /* 12px */}
 
+.custom-li li::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+}
+
+.custom-li li {
+  padding-left: 18px;
+}
+
 #header {
   position: fixed;
   width: 100%;
