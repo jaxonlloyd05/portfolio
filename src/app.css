@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @plugin 'daisyui' {
-  themes: autumn --default, coffee --prefersdark;
+  themes: nord --default;
 }
 
 :root {
@@ -52,6 +52,14 @@ small {font-size: 0.750rem; /* 12px */}
   flex-direction: column;
   min-height: 100vh;
   place-items: center;
+}
+
+.navbar {
+  min-height: 0;
+}
+
+.menu {
+  padding: 0;
 }
 
 

@@ -15,7 +15,16 @@ const Experience: React.FC = () => {
 
       <div className="tabs tabs-box rounded-none">
         <input type="radio" name="experience-tabs" className="tab" aria-label="Novofinity" defaultChecked />
-        <div className="tab-content bg-base-100 border-base-300 p-6">Novofinity</div>
+        
+        <div className="tab-content bg-base-100 border-base-300 p-6">
+          <p>
+            Software Developer @ 
+            <span className='text-primary'> Novofinity</span>
+          </p>
+          <p className='text-sm'>
+            I worked here
+          </p>
+        </div>
 
         {/* <input type="radio" name="experience-tabs" className="tab" aria-label="Tab 2"  />
         <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>

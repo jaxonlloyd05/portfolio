@@ -10,8 +10,9 @@ const Header: React.FC = () => {
           <a className='link link-hover text-primary px-3 hidden md:block' href='/#intro' aria-label='link-intro'>Jaxon Lloyd</a>
         </div>
         <div className='flex-3'>
-          <ul className='menu menu-horizontal px-1 hidden md:block'>
+          <ul className="menu menu-horizontal rounded-box">
             <li><a className='link link-hover' href='/#aboutme' aria-label='link-aboutme'>About me</a></li>
+            <li><a className='link link-hover' href='/#experience' aria-label='link-aboutme'>Experience</a></li>
           </ul>
         </div>
         <div className='flex-none'>
