@@ -27,9 +27,9 @@ const AboutMe: React.FC = () => {
 
           <div className='flex flex-col gap-4'>
             <p className='text-sm'>
-              Ever since I was a kid I had always been fascinated by how computers work. From low level computations to full stack applications,
-              understanding how it all works has been a passion of mine. This passion led me into studying computer science and working at Novofinity, 
-              and I'm excited to continue learning more in the future!
+              Ever since I was a kid, I've been fascinated by how computers work. From low-level computations to full-stack applications,
+              understanding how it all works has been a lifelong passion. So far, this curiosity has led me to move far away from home to study and work with some brilliant people.
+              I'm excited to see where this passion takes me next!
             </p>
 
             <ul className='grid grid-cols-3 text-xs'>

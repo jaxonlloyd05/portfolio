@@ -17,10 +17,9 @@ const Intro: React.FC = () => {
                 {greetings[Math.floor(Math.random() * greetings.length)]}
             </h1>
             <div className='text-center fade-in-section'>
-                I'm a software developer who is fascinated with learning how everything works.
-                Currently I live in Sydney, Australia, where I've had the pleasure to work on 
-                large database migrations, enterprise focused website applications, rapid client-facing 
-                demos, and much more.
+                I'm a software developer who loves learning about science, maths, and computers. I currently live in Sydney, Australia, 
+                where I've had the pleasure of working on large database migrations, enterprise-focused website applications, 
+                rapid client-facing demos, and much more.
                 
                 {/* I've worked on large database migrations, enterprise focused website applications, rapid client-facing demos,
                 optimising REST APIs, and much more. */}
