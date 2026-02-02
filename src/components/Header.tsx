@@ -23,7 +23,7 @@ const Header: React.FC = () => {
               </a>
             </li>
             <li>
-              <a className='link hover:text-primary' href='https://www.linkedin.com/in/jaxon-lloyd-6577832a3/' target='_blank' aria-label='redirect-linkedin'>
+              <a className='link hover:text-primary' href='https://www.linkedin.com/in/jaxon-lloyd' target='_blank' aria-label='redirect-linkedin'>
                 <FaLinkedin size={'24px'}/>
               </a>
             </li>

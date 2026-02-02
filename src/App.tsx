@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Intro from './components/Intro';
 import AboutMe from './components/AboutMe';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 
 const App: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const App: React.FC = () => {
         <Intro />
         <AboutMe />
         <Experience />
-        {/* <div id=''></div> */}
+        <Projects />
       </div>
 
     </>
