@@ -2,34 +2,36 @@
     import { GitHubIcon, LinkedInIcon, EnvelopeIcon } from '../assets/svgs';
 ---
 
-<div class="dev-outline max-w-256 m-auto w-full">
-    <div class='header w-full dev-bg'>
-        <div class="hidden md:block px-2">
-            <div class='flex h-full justify-content-center items-center text-sm'>
-                jaxons.site
+<div class="fixed w-full z-99">
+    <div class="dev-outline max-w-256 m-auto w-full bg-[var(--root-bg)] z-99">
+        <div class='header w-full dev-bg justify-end'>
+            <div class="hidden md:block px-2">
+                <div class='flex h-full justify-content-center items-center text-sm'>
+                    jaxons.site
+                </div>
             </div>
-        </div>
 
-        <div class='flex-3'>
-            <ul class='menu menu-horizontal gap-2 px-2 hidden md:inline-flex'>
-                <li><a class='link' href='/#about-me' aria-label='link-aboutme'>About me</a></li>
-                <li><a class='link' href='/#experience' aria-label='link-aboutme'>Experience</a></li>
-            </ul>
-        </div>
-        <div>
-            <ul class='menu menu-horizontal px-1'>
-                <li class='inline-flex flex-row gap-2'>
-                    <a href='https://github.com/jaxonlloyd05' target='_blank' aria-label='redirect-github'>
-                        <GitHubIcon class={'icon'} />
-                    </a>
-                    <a href='https://www.linkedin.com/in/jaxon-lloyd' target='_blank' aria-label='redirect-linkedin'>
-                        <LinkedInIcon class={'icon'} />
-                    </a>
-                    <a href='mailto:jaxonlloyd05@gmail.com' aria-label='redirect-mailto''>
-                        <EnvelopeIcon class={'icon'} />
-                    </a>
-                </li>
-            </ul>
+            <div class='hidden md:block flex-3'>
+                <ul class='menu menu-horizontal gap-2 px-2 hidden md:inline-flex'>
+                    <li><a class='link' href='/#about-me' aria-label='link-aboutme'>About me</a></li>
+                    <li><a class='link' href='/#experience' aria-label='link-aboutme'>Experience</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class='menu menu-horizontal px-1'>
+                    <li class='inline-flex flex-row gap-2'>
+                        <a href='https://github.com/jaxonlloyd05' target='_blank' aria-label='redirect-github'>
+                            <GitHubIcon class={'icon'} />
+                        </a>
+                        <a href='https://www.linkedin.com/in/jaxon-lloyd' target='_blank' aria-label='redirect-linkedin'>
+                            <LinkedInIcon class={'icon'} />
+                        </a>
+                        <a href='mailto:jaxonlloyd05@gmail.com' aria-label='redirect-mailto''>
+                            <EnvelopeIcon class={'icon'} />
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
