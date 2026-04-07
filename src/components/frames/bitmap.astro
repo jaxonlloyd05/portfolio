@@ -1,0 +1,117 @@
+---
+const { src, id, size = [64, 64], levels = 4 } = Astro.props
+---
+
+<canvas id={id} width={size[0]} height={size[1]}></canvas>
+
+<script define:vars={{ src, id, levels }}>
+    const PIXEL_SIZE = 1;
+
+    const canvas = document.querySelector(`#${id}`);
+    const ctx    = canvas.getContext('2d');
+    const width  = canvas.width;
+    const height = canvas.height;
+
+    const cols = Math.ceil(width  / PIXEL_SIZE);
+    const rows = Math.ceil(height / PIXEL_SIZE);
+
+    let buf;
+
+    const img  = new Image();
+    img.src    = src;
+    img.onload = () => {
+        const dummy     = document.createElement('canvas');
+        dummy.width     = width;
+        dummy.height    = height;
+
+        const dummy_ctx = dummy.getContext('2d');
+        dummy_ctx.drawImage(img, 0, 0, width, height);
+        const pixels = dummy_ctx.getImageData(0, 0, width, height).data;
+
+        buf = new Float32Array(cols * rows * 3);
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const px = Math.min(col * PIXEL_SIZE, width  - 1);
+                const py = Math.min(row * PIXEL_SIZE, height - 1);
+                const si = (py * width + px) * 4;
+                const bi = (row * cols + col) * 3;
+                buf[bi]     = pixels[si];
+                buf[bi + 1] = pixels[si + 1];
+                buf[bi + 2] = pixels[si + 2];
+            }
+        }
+
+        draw();
+    };
+
+    const get_buf = (x, y) => {
+        const cx = Math.max(0, Math.min(cols - 1, x));
+        const cy = Math.max(0, Math.min(rows - 1, y));
+        const i  = (cy * cols + cx) * 3;
+        return [buf[i], buf[i + 1], buf[i + 2]];
+    };
+
+    const set_buf = (x, y, r, g, b) => {
+        if (x < 0 || x >= cols || y < 0 || y >= rows) return;
+        const i    = (y * cols + x) * 3;
+        buf[i]     = r;
+        buf[i + 1] = g;
+        buf[i + 2] = b;
+    };
+
+    const quantize_channel = (value) => {
+        const step    = 255 / (levels - 1);
+        const snapped = Math.round(value / step) * step;
+        return Math.max(0, Math.min(255, snapped));
+    };
+
+    const quantize_rgb = (r, g, b) => [
+        quantize_channel(r),
+        quantize_channel(g),
+        quantize_channel(b),
+    ];
+
+    const dither = () => {
+        for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+                const [oldR, oldG, oldB] = get_buf(x, y);
+                const [newR, newG, newB] = quantize_rgb(oldR, oldG, oldB);
+
+                set_buf(x, y, newR, newG, newB);
+
+                const eR = oldR - newR;
+                const eG = oldG - newG;
+                const eB = oldB - newB;
+
+                const spread = (x2, y2, factor) => {
+                    const [cr, cg, cb] = get_buf(x2, y2);
+                    set_buf(x2, y2,
+                        cr + eR * factor,
+                        cg + eG * factor,
+                        cb + eB * factor,
+                    );
+                };
+
+                spread(x + 1, y,     7 / 16);
+                spread(x - 1, y + 1, 3 / 16);
+                spread(x,     y + 1, 5 / 16);
+                spread(x + 1, y + 1, 1 / 16);
+            }
+        }
+    };
+
+    const draw = () => {
+        dither();
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const i = (row * cols + col) * 3;
+                const r = Math.round(Math.max(0, Math.min(255, buf[i])));
+                const g = Math.round(Math.max(0, Math.min(255, buf[i + 1])));
+                const b = Math.round(Math.max(0, Math.min(255, buf[i + 2])));
+                ctx.fillStyle = `rgb(${r},${g},${b})`;
+                ctx.fillRect(col * PIXEL_SIZE, row * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE);
+            }
+        }
+    };
+</script>

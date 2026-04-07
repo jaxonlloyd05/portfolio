@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import BitMapImage from '../components/frames/bitmap.astro';
+import { 
+	TypeScriptIcon,
+	ReactIcon,
+	SvelteIcon,
+	AWSIcon,
+	AzureIcon,
+	PythonIcon,
+	DockerIcon
+} from '../assets/svgs';
+import '../styles/index.css'
+---
+
+<Layout>
+	<div class='flex flex-col gap-2 py-4'>
+		<Header />
+		<main class='dev-outline dev-bg-y gap-2 min-w-80 max-w-256 w-full m-auto flex flex-col'>
+			<section id='intro'>
+				<div class='items-flex h-full dev-bg flex-col md:flex-row'>
+					<div class='flex-2 flex flex-col gap-2 text-center justify-center dev-bg-bottom'>
+						<h1 class='min-w-0'>I'm Jaxon, nice to meet you</h1>
+						<div>I'm a software developer who loves to understand large-scale technologies and how they impact the world.</div>
+					</div>
+					
+					<div class='flex flex-col gap-2 place-items-center dev-bg-top'>
+						<div class='hover-3d h-68 max-w-68 w-68'>
+							<figure class='max-w-100 rounded-base border border-neutral'>
+								<BitMapImage src='/images/me.webp' id='image-1' size={[306, 306]} />
+							</figure>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+
+					
+				</div>
+			</section>
+			<section id='about-me' class='flex-col gap-2'>
+				<div class='items-flex h-full dev-bg-y flex-col'>
+					<div class='flex flex-col gap-2'>
+						<h2>About Me</h2>
+						<p>
+							Ever since I was a kid, I've been fascinated by how computers work. From low-level computations to full-stack applications, 
+							understanding how it all works has been a lifelong passion. So far, this curiosity has led me to move far away from home to study and 
+							work with some brilliant people and I'm excited to see where this passion takes me next!
+						</p>
+						<p class='text-sm text-neutral-content bg-neutral p-2 rounded-base'>
+							Here is a glimpse into some of the technologies I've worked with so far.
+						</p>
+						<ul class='grid grid-cols-3 md:grid-cols-4 gap-2 text-sm'>
+							<li>
+								<!-- <i class='fa-brands fa-typescript text-2xl'></i> -->
+								<TypeScriptIcon class={'icon'} />
+								<span>Typescript</span>
+							</li>
+							<li>
+								<!-- <i class='fa-brands fa-react text-2xl'></i> -->
+								<ReactIcon class={'icon'} />
+								<span>React</span>
+							</li>
+							<li>
+								<!-- <i class='fa-brands fa-svelte text-2xl'></i> -->
+								<SvelteIcon class={'icon'} />
+								<span>SvelteKit</span>
+							</li>
+							<li>
+								<!-- <i class='fa-brands fa-aws text-2xl'></i> -->
+								<AWSIcon class={'icon'} />
+								<span>AWS</span>
+							</li>
+							<li>
+								<!-- <i class='fa-brands fa-microsoft text-2xl'></i> -->
+								<AzureIcon class={'icon'} />
+								<span>Azure</span>
+							</li>
+							<li>
+								<!-- <i class='fa-brands fa-python text-2xl'></i> -->
+								<PythonIcon class={'icon'} />
+								<span>Python</span>
+							</li>
+							<li>
+								<DockerIcon class={'icon'} />
+								<span>Docker</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section id='experience'>
+				<div class='items-flex h-full dev-bg-y flex-col'>
+					<div class="flex flex-col gap-2">
+						<h2>Experience</h2>
+						<div class="flex flex-row gap-2">
+							<div class="flex-1 exp-block rounded-base">
+								<h3>Software Developer @ <span>Novofinity</span></h3>
+								<p class="text-xs">DEC 2023 → DEC 2025</p>
+								<div class="relative block">
+									<ul class="exp-list">
+										<li>Led front-end development for data-driven web applications.</li>
+										<li>Migrated large production databases from NoSQL to PostgreSQL.</li>
+										<li>Built rapid AI integration prototypes.</li>
+										<li>Modernised legacy systems.</li>
+										<li>Created data migration and seeding pipelines using Docker to support demos and load testing.</li>
+										<li>Optimised cloud infrastructure and server workloads.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id='projects'>
+				<div class="items-flex h-full dev-bg-y flex-col">
+					<div>
+						<h2>Projects</h2>
+						<div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<div class="text-center text-xs pt-4">
+			<div>Built and designed by Jaxon Lloyd</div>
+			<div>All rights reserved. ©</div>
+		</div>
+	</div>
+</Layout>

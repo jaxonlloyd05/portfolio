@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: emerald --default;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
+}
+
+@layer base {
+    :root {
+        font-size: 18px;
+    }
+
+    html, body {
+        @apply m-0 h-full w-full scroll-smooth;
+    }
+
+    body {
+        @apply font-normal tracking-[-1px];
+        font-family: "Space Grotesk", sans-serif;
+        font-optical-sizing: auto;
+    }
+
+    section {
+        @apply flex justify-center w-full;
+    }
+
+    canvas {
+        @apply rounded-sm shadow-2xl;
+    }
+
+    h1 { @apply text-4xl; }
+    h2 { @apply text-3xl; }
+    h3 { @apply text-xl; }
+}
+
+@layer components {
+    .header {
+        @apply flex w-full items-stretch mx-auto max-w-320 gap-2;
+    }
+
+    .header > div {
+        @apply flex flex-col gap-2;
+    }
+
+    .icon {
+        @apply h-6 w-6;
+    }
+
+    .rounded-base {
+        border-radius: var(--radius-field);
+    }
+
+    .grid > li {
+        @apply flex flex-row gap-1 items-center;
+    }
+
+    .items-flex {
+        @apply flex flex-row gap-2 w-full;
+    }
+
+    .items-flex > div {
+        @apply flex-1 p-6;
+    }
+
+    .exp-block {
+        @apply flex flex-col gap-1 w-full h-full p-4 shadow-xl bg-neutral text-neutral-content;
+    }
+
+    .exp-list li {
+        @apply relative pl-[18px];
+    }
+
+    .exp-list li::before {
+        content: "■";
+        @apply absolute left-0;
+    }
+}
+
+@layer utilities {
+    .dev-outline {
+        border: 1px dashed var(--color-primary-content);
+    }
+
+    .dev-bg {
+        background-image: repeating-linear-gradient(
+            135deg,
+            rgba(128,128,128,0.15) 0px,
+            rgba(128,128,128,0.15) 1px,
+            transparent 1px,
+            transparent 8px
+        );
+    }
+
+    .dev-bg > * {
+        @apply min-h-full;
+        background-color: var(--root-bg);
+        border-left: 1px dashed var(--color-primary-content);
+        border-right: 1px dashed var(--color-primary-content);
+    }
+
+    .dev-bg > *:first-child {
+        border-left: none;
+    }
+
+    .dev-bg > *:last-child {
+        border-right: none;
+    }
+
+    .dev-bg-none > * {
+        border-left: none;
+        border-right: none;
+    }
+
+    .dev-bg-y {
+        background-image: repeating-linear-gradient(
+            135deg,
+            rgba(128,128,128,0.15) 0px,
+            rgba(128,128,128,0.15) 1px,
+            transparent 1px,
+            transparent 8px
+        );
+    }
+
+    .dev-bg-y > * {
+        @apply min-h-full;
+        background-color: var(--root-bg);
+        border-top: 1px dashed var(--color-primary-content);
+        border-bottom: 1px dashed var(--color-primary-content);
+    }
+
+    .dev-bg-y > *:first-child {
+        border-top: none;
+    }
+
+    .dev-bg-y > *:last-child {
+        border-bottom: none;
+    }
+
+    .dev-bg-y-none > * {
+        border-top: none !important;
+        border-bottom: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .dev-bg-bottom {
+        border-bottom: 1px dashed var(--color-primary-content);
+    }
+
+    .dev-bg-top {
+        border-top: 1px dashed var(--color-primary-content);
+    }
+}

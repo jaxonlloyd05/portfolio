@@ -1,0 +1,71 @@
+---
+const { src, id, size } = Astro.props
+---
+
+<div>
+    <canvas id={id} width={size[0]} height={size[1]}></canvas>
+</div>
+
+<script define:vars={{ src, id }} lang='ts'>
+    const canvas = document.querySelector(`#${id}`);
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // Character ramp ordered from darkest (most ink) to lightest (least ink)
+    const GLYPH_RAMP = '@#%&8BMQmwdbqpZX0OULS/?|)(><i!l;:,..';
+    const CELL_SIZE = 6; // px — tune this to change resolution
+
+    let pixels = null;
+
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+        const dummy = document.createElement('canvas');
+        dummy.width = width;
+        dummy.height = height;
+
+        const dummy_ctx = dummy.getContext('2d');
+        dummy_ctx.drawImage(img, 0, 0, width, height);
+        pixels = dummy_ctx.getImageData(0, 0, width, height).data;
+        draw();
+    };
+
+    const get_brightness = (r, g, b) => {
+        return 0.299 * r + 0.587 * g + 0.114 * b;
+    };
+
+    const get_color = (x, y) => {
+        const cx = Math.max(0, Math.min(width - 1, Math.floor(x)));
+        const cy = Math.max(0, Math.min(height - 1, Math.floor(y)));
+        const i = (cy * width + cx) * 4;
+        return [pixels[i], pixels[i + 1], pixels[i + 2]];
+    };
+
+    const brightness_to_glyph = (brightness) => {
+        const index = Math.floor((brightness / 255) * (GLYPH_RAMP.length - 1));
+        return GLYPH_RAMP[index];
+    };
+
+    const draw = () => {
+        ctx.clearRect(0, 0, width, height);
+        if (!pixels) return;
+
+        ctx.font = `${CELL_SIZE}px monospace`;
+        ctx.textBaseline = 'top';
+
+        for (let ny = 0; ny < height; ny += CELL_SIZE) {
+            for (let nx = 0; nx < width; nx += CELL_SIZE) {
+                const sx = nx + CELL_SIZE / 2;
+                const sy = ny + CELL_SIZE / 2;
+
+                const [ r, g, b ] = get_color(sx, sy);
+                const brightness = get_brightness(r, g, b);
+                const glyph = brightness_to_glyph(brightness);
+
+                ctx.fillStyle = `rgb(${r},${g},${b})`;
+                ctx.fillText(glyph, nx, ny);
+            }
+        }
+    };
+</script>
