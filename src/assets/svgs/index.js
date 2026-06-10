@@ -8,6 +8,7 @@ import aw from './aws.svg';
 import az from './azure.svg';
 import py from './python.svg';
 import dk from './docker.svg';
+import go from './golang.svg';
 
 
 export {
@@ -20,5 +21,6 @@ export {
   aw as AWSIcon,
   az as AzureIcon,
   py as PythonIcon,
-  dk as DockerIcon
+  dk as DockerIcon,
+  go as Golang
 }
