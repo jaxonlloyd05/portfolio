@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BitMapImage from '../components/frames/bitmap.astro';
+import AsciiImage from '../components/frames/ascii.astro';
+import BrightnessImage from '../components/frames/brightness.astro';
 import { 
 	TypeScriptIcon,
 	ReactIcon,
@@ -23,7 +25,7 @@ import '../styles/index.css'
 			<section id='header'>
 					<div class="max-w-256 m-auto w-full bg-[var(--root-bg)] z-99">
 							<div class='header w-full dev-bg justify-end'>
-									<div class="hidden md:block px-2">
+									<div class="hidden md:block px-4">
 											<div class='flex h-full justify-content-center items-center text-sm'>
 													jaxons.site
 											</div>
@@ -63,8 +65,8 @@ import '../styles/index.css'
 					
 					<div class='flex flex-col gap-2 place-items-center dev-bg-top'>
 						<div class='hover-3d h-68 max-w-68 w-68'>
-							<figure class='max-w-100 rounded-base border border-neutral'>
-								<BitMapImage src='/images/me.webp' id='image-1' size={[306, 306]} />
+							<figure class='max-w-100 rounded-base'>
+								<BrightnessImage src='/images/me.webp' id='image-1' size={[306, 306]} />
 							</figure>
 							<div></div>
 							<div></div>
@@ -75,9 +77,7 @@ import '../styles/index.css'
 							<div></div>
 							<div></div>
 						</div>
-					</div>
-
-					
+					</div>					
 				</div>
 			</section>
 			<section id='about-me' class='flex-col gap-2'>
@@ -161,10 +161,20 @@ import '../styles/index.css'
 			</section>
 			<section id='projects'>
 				<div class="items-flex h-full dev-bg-y flex-col">
-					<div>
+					<div class="flex flex-col gap-2">
 						<h2>Projects</h2>
-						<div>
-							
+						<div class="flex flex-row w-full gap-2">
+							<a class="flex flex-col gap-2 w-64 h-64 rounded-base overflow-hidden relative shadow-2xl cursor-pointer" href="https://github.com/jaxonlloyd05/drc-2025" target="_blank">
+								<img class="object-cover h-full w-full" src="/images/drc2025.webp" alt="DRC Competition 2025">
+								<div class="absolute transition h-full w-full p-2 bg-[#353d4d8c] opacity-80 hover:opacity-100 text-neutral-content flex flex-col justify-end">
+									<div>
+										2025 Driod Racing Competition
+									</div>
+									<div class="flex flex-row gap-2">
+										<PythonIcon class={'icon'} />
+									</div>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>

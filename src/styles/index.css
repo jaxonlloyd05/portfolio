@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-    themes: emerald --default;
+    themes: emerald --default, black;
 }
 
 @font-face {
