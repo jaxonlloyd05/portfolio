@@ -2,7 +2,7 @@
 const { href, name, cover_src } = Astro.props
 ---
 
-<a class="flex flex-col gap-2 w-64 h-64 rounded-base overflow-hidden relative shadow-2xl cursor-pointer" href={href} target="_blank">
+<a class="flex flex-col gap-2 w-full h-64 rounded-base overflow-hidden relative shadow-2xl cursor-pointer" href={href} target="_blank">
   <img class="object-cover h-full w-full" src={cover_src} alt={name}>
   <div class="absolute transition h-full w-full p-2 bg-[#353d4d8c] opacity-50 hover:opacity-100 text-neutral-content flex flex-col justify-end">
     <slot />

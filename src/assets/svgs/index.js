@@ -22,5 +22,5 @@ export {
   az as AzureIcon,
   py as PythonIcon,
   dk as DockerIcon,
-  go as Golang
+  go as GolangIcon
 }
