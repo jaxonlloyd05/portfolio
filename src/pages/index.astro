@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import BitMapImage from '../components/frames/bitmap.astro';
 import AsciiImage from '../components/frames/ascii.astro';
 import BrightnessImage from '../components/frames/brightness.astro';
+import Project from '../components/ui/Project.astro';
 import { 
 	TypeScriptIcon,
 	ReactIcon,
@@ -164,17 +165,18 @@ import '../styles/index.css'
 					<div class="flex flex-col gap-2">
 						<h2>Projects</h2>
 						<div class="flex flex-row w-full gap-2">
-							<a class="flex flex-col gap-2 w-64 h-64 rounded-base overflow-hidden relative shadow-2xl cursor-pointer" href="https://github.com/jaxonlloyd05/drc-2025" target="_blank">
-								<img class="object-cover h-full w-full" src="/images/drc2025.webp" alt="DRC Competition 2025">
-								<div class="absolute transition h-full w-full p-2 bg-[#353d4d8c] opacity-80 hover:opacity-100 text-neutral-content flex flex-col justify-end">
-									<div>
-										2025 Driod Racing Competition
-									</div>
-									<div class="flex flex-row gap-2">
-										<PythonIcon class={'icon'} />
-									</div>
+							<Project 
+								href='https://github.com/jaxonlloyd05/drc-2025'
+								name='DRC Competition 2025'
+								cover_src='/images/drc2025.webp'
+							>
+								<div>
+									2025 Driod Racing Competition
 								</div>
-							</a>
+								<div class="flex flex-row gap-2">
+									<PythonIcon class={'icon'} />
+								</div>
+							</Project>
 						</div>
 					</div>
 				</div>
